@@ -9,20 +9,28 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
-public class LogAnalyzerBadExtensionTests {
+public class LogAnalyzerTests {
 
     private String fileName;
+    private boolean expectedResult;
 
-    public LogAnalyzerBadExtensionTests (String fileName){
+    public LogAnalyzerTests(String fileName, boolean expectedResult){
+        this.expectedResult = expectedResult;
         this.fileName = fileName;
-        System.out.println("Constructor for string: " + fileName + " invoked ");
+        System.out.println("Constructor for string: " + fileName +
+                " and expected result : " + expectedResult + " invoked ");
     }
 
     @Parameterized.Parameters
     public static Collection data(){
         System.out.println("data() method invoked ");
-        Object [] parameters = new Object[]{"badExtensionFile.foo",
-                "badExtensionFile.FOO"};
+        Object [][] parameters = new Object[][] {
+                { "badExtensionFile.foo", false },
+                { "badExtensionFile.FOO", false },
+                { "badExtensionFile.Foo", false },
+                { "goodExtensionFile.iml", true },
+                { "goodExtensionFile.IML", true }
+        };
         return Arrays.asList(parameters);
     }
 
@@ -36,11 +44,11 @@ public class LogAnalyzerBadExtensionTests {
         System.out.println("tearDown() invoked");
     }
     @Test
-    public void isValidFileName_BadExtension_ReturnsFalse(){
+    public void isValidFileName_variousExtensions_checkThem(){
 
         LogAnalyzer analyzer = new LogAnalyzer();
 
         boolean result = analyzer.isValidLogFileName(fileName);
-        Assert.assertFalse(result);
+        Assert.assertEquals(result, expectedResult);
     }
 }
