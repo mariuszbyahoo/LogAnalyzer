@@ -5,16 +5,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import javax.naming.InvalidNameException;
 import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
-public class LogAnalyzerTests {
+public class LogAnalyzerValidFileExtensionTests {
 
     private String fileName;
     private boolean expectedResult;
 
-    public LogAnalyzerTests(String fileName, boolean expectedResult){
+    public LogAnalyzerValidFileExtensionTests(String fileName, boolean expectedResult){
         this.expectedResult = expectedResult;
         this.fileName = fileName;
         System.out.println("Constructor for string: " + fileName +
@@ -44,7 +45,7 @@ public class LogAnalyzerTests {
         System.out.println("tearDown() invoked");
     }
     @Test
-    public void isValidFileName_variousExtensions_checkThem(){
+    public void isValidFileName_variousExtensions_checkThem() throws InvalidNameException {
 
         LogAnalyzer analyzer = new LogAnalyzer();
 
