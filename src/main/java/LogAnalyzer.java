@@ -1,8 +1,8 @@
 import javax.naming.InvalidNameException;
 
 public class LogAnalyzer {
+    public boolean wasFileNameChecked = false;
     public boolean isValidLogFileName (String fileName) throws InvalidNameException{
-        boolean wasFileNameChecked = false;
         if (fileName == null){
             throw new InvalidNameException("File Name is empty!");
         } else {

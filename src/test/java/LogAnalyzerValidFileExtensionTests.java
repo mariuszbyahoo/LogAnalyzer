@@ -44,7 +44,7 @@ public class LogAnalyzerValidFileExtensionTests {
     @Test
     public void isValidFileName_variousExtensions_checkThem() throws InvalidNameException {
 
-        LogAnalyzer analyzer = new LogAnalyzer();
+        LogAnalyzer analyzer = LogAnalyzerFactory.getInstance();
 
         boolean result = analyzer.isValidLogFileName(fileName);
         Assert.assertEquals(result, expectedResult);
