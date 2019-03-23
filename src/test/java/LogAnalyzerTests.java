@@ -9,4 +9,10 @@ public class LogAnalyzerTests {
         boolean result = analyzer.isValidLogFileName("badExtensionFile.foo");
         Assert.assertFalse(result);
     }
+    @Test
+    public void isValidFileName_GoodExtensionUpperCase_ReturnsTrue() {
+        LogAnalyzer analyzer = new LogAnalyzer();
+        boolean result = analyzer.isValidLogFileName("goodExtensionFile.IML");
+        Assert.assertTrue(result);
+    }
 }
