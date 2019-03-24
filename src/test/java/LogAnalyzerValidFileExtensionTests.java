@@ -46,7 +46,7 @@ public class LogAnalyzerValidFileExtensionTests {
 
         LogAnalyzer analyzer = LogAnalyzerFactory.getInstance();
 
-        boolean result = analyzer.isValidLogFileName(fileName);
+        boolean result = analyzer.isValid(fileName);
         Assert.assertEquals(result, expectedResult);
     }
 }

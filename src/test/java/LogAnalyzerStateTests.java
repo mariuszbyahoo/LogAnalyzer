@@ -10,7 +10,7 @@ public class LogAnalyzerStateTests {
 
         Assert.assertFalse(analyzer.wasFileNameChecked);
 
-        analyzer.isValidLogFileName("bleble");
+        analyzer.isValid("bleble");
 
         Assert.assertTrue(analyzer.wasFileNameChecked);
     }
