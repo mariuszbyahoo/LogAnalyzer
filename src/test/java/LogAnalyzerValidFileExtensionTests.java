@@ -27,7 +27,7 @@ public class LogAnalyzerValidFileExtensionTests {
                 { "badExtensionFile.FOO", false },
                 { "badExtensionFile.Foo", false },
                 { "goodExtensionFile.iml", true },
-                { "goodExtensionFile.IML", true }
+                { "goodExtensionFile.IML", true },
         };
         return Arrays.asList(parameters);
     }
@@ -46,7 +46,7 @@ public class LogAnalyzerValidFileExtensionTests {
 
         LogAnalyzer analyzer = LogAnalyzerFactory.getInstance();
 
-        boolean result = analyzer.isValid(fileName);
+        boolean result = analyzer.isValid(fileName.toLowerCase());
         Assert.assertEquals(result, expectedResult);
     }
 }
