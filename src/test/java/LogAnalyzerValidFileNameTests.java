@@ -6,7 +6,7 @@ public class LogAnalyzerValidFileNameTests {
 
     @Test(expected = InvalidNameException.class)
     public void isFileNameNotNull() throws InvalidNameException{
-        LogAnalyzer analyzer = LogAnalyzerFactory.getInstance();
+        ILogAnalyzer analyzer = LogAnalyzerFactory.getInstance();
         analyzer.isValid(null);
     }
 }
