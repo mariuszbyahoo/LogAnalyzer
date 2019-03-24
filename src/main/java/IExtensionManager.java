@@ -1,5 +1,5 @@
 import javax.naming.InvalidNameException;
 
-public interface ILogAnalyzer {
+public interface IExtensionManager {
     boolean isValid(String fileName) throws InvalidNameException;
 }

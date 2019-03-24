@@ -44,9 +44,21 @@ public class LogAnalyzerValidFileExtensionTests {
     @Test
     public void isValidFileName_variousExtensions_checkThem() throws InvalidNameException {
 
-        LogAnalyzer analyzer = LogAnalyzerFactory.getInstance();
+        IExtensionManager mgr = new FakeExtensionManager();
+
+
+        LogAnalyzer analyzer = new LogAnalyzer(mgr);
 
         boolean result = analyzer.isValid(fileName.toLowerCase());
         Assert.assertEquals(result, expectedResult);
+    }
+
+    class FakeExtensionManager implements IExtensionManager {
+
+        public boolean willBeValid = expectedResult;
+
+        public boolean isValid(String fileName) throws InvalidNameException {
+            return willBeValid;
+        }
     }
 }

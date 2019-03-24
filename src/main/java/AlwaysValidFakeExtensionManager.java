@@ -6,7 +6,8 @@ import javax.naming.InvalidNameException;
  * According to the above, this class will have a possibility to be used multiple times in a
  * multiple number of tests.
  */
-public class AlwaysValidFakeLogAnalyzer implements ILogAnalyzer {
+public class AlwaysValidFakeExtensionManager implements IExtensionManager {
+    public boolean willBeValid = false;
     public boolean isValid(String fileName) throws InvalidNameException {
         return true;
     }
